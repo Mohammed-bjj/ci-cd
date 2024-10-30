@@ -24,7 +24,9 @@ pipeline {
                expression { return params.DEPLOY_TO_NEXUS }
            }
            steps {
-                      sh 'mvn deploy'
+                withCredentials([usernamePassword(credentialsId: 'nexus-credentials', usernameVariable: 'NEXUS_USER', passwordVariable: 'NEXUS_PASS')]) {
+                        sh 'mvn deploy -Dnexus.username=$NEXUS_USER -Dnexus.password=$NEXUS_PASS'
+                }
           }
       }
     }
