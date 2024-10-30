@@ -7,6 +7,28 @@
   <version>1.0-SNAPSHOT</version>
   <name>wepAPP Maven Webapp</name>
   <url>http://maven.apache.org</url>
+
+
+  <repositories>
+    <repository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8085/repository/maven-snapshots/</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>nexus-snapshots</id>
+      <url>http://localhost:8085/repository/maven-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
